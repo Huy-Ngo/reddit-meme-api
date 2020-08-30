@@ -42,6 +42,6 @@ def random_memes():
                     "url": submission.url,
                     "author": submission.author.name,
                     "score": submission.score
-            }
+                }
     chosen = choice(list(meme_list.keys()))
     return {'chosen': meme_list[chosen]}
