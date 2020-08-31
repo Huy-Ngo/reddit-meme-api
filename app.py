@@ -36,34 +36,34 @@ def memes(sub):
 def random_memes():
     meme_list = {}
     subs = ['memes', 'dankmemes', 'meme', 'me_irl']
-    for sub in subs:
-        for submission in reddit.subreddit(sub).hot(limit=10):
-            if submission.selftext == '' and 'redd.it' in submission.url:
-                meme_list[submission.id] = {
-                    "permalink": submission.permalink,
-                    "url": submission.url,
-                    "author": submission.author.name,
-                    "score": submission.score
-                }
+    sub = choice(subs)
+    for submission in reddit.subreddit(sub).hot(limit=10):
+        if submission.selftext == '' and 'redd.it' in submission.url:
+            meme_list[submission.id] = {
+                "permalink": submission.permalink,
+                "url": submission.url,
+                "author": submission.author.name,
+                "score": submission.score
+            }
     chosen = choice(list(meme_list.keys()))
-    return {'chosen': meme_list[chosen]}
+    return meme_list[chosen]
 
 
 @bp.route('/new')
 def new_memes():
     meme_list = {}
     subs = ['memes', 'dankmemes', 'meme', 'me_irl']
-    for sub in subs:
-        for submission in reddit.subreddit(sub).new(limit=10):
-            if submission.selftext == '' and 'redd.it' in submission.url:
-                meme_list[submission.id] = {
-                    "permalink": submission.permalink,
-                    "url": submission.url,
-                    "author": submission.author.name,
-                    "score": submission.score
-                }
+    sub = choice(subs)
+    for submission in reddit.subreddit(sub).new(limit=10):
+        if submission.selftext == '' and 'redd.it' in submission.url:
+            meme_list[submission.id] = {
+                "permalink": submission.permalink,
+                "url": submission.url,
+                "author": submission.author.name,
+                "score": submission.score
+            }
     chosen = choice(list(meme_list.keys()))
-    return {'chosen': meme_list[chosen]}
+    return meme_list[chosen]
 
 
 app.register_blueprint(bp)
