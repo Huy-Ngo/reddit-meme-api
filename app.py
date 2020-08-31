@@ -32,8 +32,8 @@ def memes(sub):
     return meme_list
 
 
-@bp.route('/random')
-def random_memes():
+@bp.route('/hot')
+def hot_memes():
     meme_list = {}
     subs = ['memes', 'dankmemes', 'meme', 'me_irl']
     sub = choice(subs)
