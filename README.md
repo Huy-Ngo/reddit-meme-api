@@ -11,7 +11,7 @@ Each meme post is returned in the following format:
 ```json
 {
     "author": "Poster of the meme",
-    "permalink: "Path to the post from reddit.com",
+    "permalink": "Path to the post from reddit.com",
     "score": "The number of upvotes minus downvotes",
     "url": "URL to the image"
 }
