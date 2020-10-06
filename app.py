@@ -22,7 +22,7 @@ bp = Blueprint('memes', __name__, url_prefix='/memes')
 def memes(sub):
     print(sub)
     meme_list = {}
-    for submission in reddit.subreddit(sub).hot(limit=10):
+    for submission in reddit.subreddit(sub).new(limit=20):
         if submission.selftext == '' and 'redd.it' in submission.url:
             meme_list[submission.id] = {
                 "permalink": submission.permalink,
