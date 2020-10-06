@@ -18,8 +18,9 @@ reddit = Reddit(client_id=client_id, client_secret=client_secret,
 bp = Blueprint('memes', __name__, url_prefix='/memes')
 
 
-@bp.route('/sub/<sub>')
+@bp.route('/<sub>')
 def memes(sub):
+    print(sub)
     meme_list = {}
     for submission in reddit.subreddit(sub).hot(limit=10):
         if submission.selftext == '' and 'redd.it' in submission.url:
